@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './blog.module.css';
 
+import { Redirect } from 'react-router-dom';
+import * as ROUTES from './constants/routes';
+
 class Blog extends React.Component {
     constructor(props) {
         super(props);
@@ -8,6 +11,7 @@ class Blog extends React.Component {
     }
 
     componentDidMount() {
+	var test = 'http://localhost:8080/';
         var real = 'https://hanoelleb-blog-api.herokuapp.com/';
         fetch(real + 'api/posts')
             .then( response => response.json() )
@@ -30,10 +34,19 @@ class Blog extends React.Component {
 }
 
 class BlogPost extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = ({toPost: false})
+    }
+
     render() {
+	if (this.state.toPost)
+            return <Redirect to={ ROUTES.viewer + '/post/' + this.props.post._id} />
         return  (
 	    <div className={styles.blog}>
-                <h2>{this.props.post.title}</h2>
+                <h2 onClick={ ()=>{this.setState({toPost: true})} }>
+		    {this.props.post.title}
+                </h2>
 		<p>{this.props.post.content}</p>
             </div>
 	)
