@@ -10,3 +10,51 @@
 .blog h2:hover {
     color: hotpink;
 }
+
+.blogLink {
+    text-decoration: none;
+    color: mistyrose;
+}
+
+.blogLink:hover {
+    color: hotpink;
+}
+
+.commentForm {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    border-radius: 5px;
+    background-color: mistyrose;
+    color: black;
+    position: fixed;
+    left: 33vw;
+    top: 25vh;
+}
+
+.commentForm button, input[type='text'] {
+    margin-bottom: 10px;
+}
+
+.comment {
+    margin: 10px;
+    padding: 5px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    border-radius: 5px;
+}
+
+.comment h3 {
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+.comment p {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
